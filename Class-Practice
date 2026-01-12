@@ -5,6 +5,7 @@ DROP TABLE instructor;
 DROP SEQUENCE id_seq;
 
 CREATE SEQUENCE id_seq
+-- this increment is unnecessary and just here for clarification 
 	INCREMENT BY 1
 	START WITH 123456789;
 
@@ -19,10 +20,13 @@ CREATE TABLE course
 	 CONSTRAINT course_primary_key PRIMARY KEY (code),
 	 CONSTRAINT course_foreign_key FOREIGN KEY (instructor)
 		REFERENCES instructor (id));
-	 
+
+-- using the id and the nextval to give Kitty an ID ** 
+-- the first nextval is always the start with val 
 INSERT INTO instructor (id, name, address)
 	VALUES (id_seq.nextval, 'Kitty', '123 This St');
 
+-- using the current value 
 INSERT INTO course (code, instructor)
 	VALUES ('CPRG307C', id_seq.currval);
 INSERT INTO course (code, instructor)
