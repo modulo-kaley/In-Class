@@ -1,0 +1,20 @@
+--Sequence Examples
+
+create sequence test1:
+-- 1, 2, 3, 4, 
+
+create sequence test2 increment by 2 start with 10;
+-- 10, 12, 14, 16
+
+--Testing
+select test1.nextval from dual; 
+
+--NEXTVAL
+--
+-- 1 
+
+select test1.nextval from dual;
+
+--NEXTVAL 
+-- 
+-- 2 
